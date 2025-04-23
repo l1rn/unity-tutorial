@@ -1,26 +1,35 @@
 <template>
-  <div>
+  <div class="header-container">
     <div class="left-container">
-      <button 
-      class="menu-button"
-      @click="menuStore.toggle()">
-        <img :src="menuStore.isOpen 
-        ? require('@/assets/menu/menu-button.png')
-        : require('@/assets/menu/close-button.png')"
-        :alt="menuStore.isOpen ? 'Close menu' : 'Open menu'"
-        class="menu-item">        
-      </button>
-    </div>
-    <div class="right-container">
+      <div class="title-container">
+        <h2 @click="this.$router.push('/')">unity brain <span>👅</span> tutorial</h2>
+      </div>
       
+    </div>
+    
+    <div class="right-container">
+      <div class="sub-right-container">
+        <button
+        @click="this.$router.push('/')">
+          <span class="emoji">🏠</span>
+          главная
+        </button>
+        <button
+        @click="this.$router.replace('/api/references')">
+          <span class="emoji">📚</span>
+          ссылки
+        </button>
+        <button>
+          <span class="emoji">ℹ️</span>
+          что такое
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import useMenuStore from "@/stores/menuStore"
 
-const menuStore = useMenuStore()
 </script>
 
 <style scoped lang="sass">
