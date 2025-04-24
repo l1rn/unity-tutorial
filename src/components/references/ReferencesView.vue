@@ -1,11 +1,19 @@
 <template>
   <div>
-    hello
+    <SidebarView />
+    <HeaderView />
+    <div class="main-container">
+
+    </div>
   </div>
 </template>
 
 <script setup>
+import HeaderView from "@/components/main-page/HeaderView.vue"
+import SidebarView from "@/components/sidebar-menu/SidebarView.vue"
+
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+@import "@/assets/styles/references.sass"
 </style>

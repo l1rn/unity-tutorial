@@ -6,7 +6,6 @@
       </div>
       
     </div>
-    
     <div class="right-container">
       <div class="sub-right-container">
         <button
@@ -29,7 +28,6 @@
 </template>
 
 <script setup>
-
 </script>
 
 <style scoped lang="sass">

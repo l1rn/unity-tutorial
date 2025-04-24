@@ -5,7 +5,8 @@
     background: #1E293B
     display: flex
     justify-content: space-around
-    height: 30%
+    padding: 1.4rem
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
 
 .right-container
     display: flex
@@ -13,7 +14,7 @@
     .sub-right-container
         display: flex
         flex-direction: row
-        margin: .5rem 0
+        margin: .6rem 0
         gap: 1.5rem
         button
             background: #BBC8DB
@@ -22,9 +23,16 @@
             border-radius: 16px
             border: 0
             cursor: pointer
+            font-weight: 600
             font-size: 20px
+            transition: 0.4s all
+            box-shadow: 0 0 8px #4285F430
+            &:hover
+                box-shadow: 0 0 8px #4285F480
+                transform: translateY(-2px)
 .title-container
     height: 100%
     display: flex
     h2
         color: #e4ebf5
+        cursor: pointer
