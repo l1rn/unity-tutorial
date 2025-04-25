@@ -7,7 +7,7 @@
     min-height: 100vh
     margin: 1rem 0
     border-radius: 16px
-    width: 80%
+    width: 75%
     flex-direction: column
     background: #fbfcff
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
@@ -15,26 +15,35 @@
 .title-container
     display: flex
     justify-content: center
+    align-items: center
+    flex-direction: column
 
 .page-content
     display: flex
     min-height: 90vh
     justify-content: center
 
+.button-container
+    background: #4285F4
+    color: #fff
+    border: 0
+    border-radius: 8px
+    cursor: pointer
+    box-shadow: 0 0 8px #174EA640
+    padding: 0.6rem 1.5rem
+    transition: 0.4s all
+    font-weight: 600
+    font-size: 20px
+    width: 200px
+.download-button
+    width: 125px
+
 .page-controls
     display: flex
     justify-content: space-between
     margin: 1rem
     button
-        font-size: 18px
-        background: #4285F4
-        color: #fff
-        border: 0
-        border-radius: 8px
-        cursor: pointer
-        box-shadow: 0 0 8px #174EA640
-        padding: 0.8rem 1.5rem
-        transition: 0.4s all
+        
         &:hover
             transform: translateY(-2px)
             box-shadow: 0 0 8px #174EA6AA
@@ -49,5 +58,25 @@
     margin: 0 4rem
     font-size: 21px
     text-align: justify
+    .content
+        hr
+            width: 100%
+        img
+            margin: 1rem auto
+            border-radius: 8px
+            border: 2px solid #5A5B5D
+            height: auto
+            display: block
+            width: 100%
+            max-width: 1400px
+        .first-task-container
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            p
+                padding: 0.2rem 0.4rem
+                border-radius: 8px
+                background: #F1F3F4
     .subtitle
         font-size: 30px

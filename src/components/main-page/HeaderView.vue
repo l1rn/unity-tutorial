@@ -14,7 +14,7 @@
           главная
         </button>
         <button
-        @click="this.$router.replace('/api/references')">
+        @click="this.$router.replace('/references')">
           <span class="emoji">📚</span>
           ссылки
         </button>
