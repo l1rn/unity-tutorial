@@ -4,8 +4,7 @@ import HomeView from "@/components/HomeView.vue";
 import ReferencesView from "@/components/references/ReferencesView.vue";
 
 const routes = [
-    { path: '/', redirect: '/home'},
-    { path: '/home', component: HomeView },
+    { path: '/', redirect: '/home/lesson/1'},
     { path: '/references', component: ReferencesView},
     { 
         path: '/home/lesson/:page(\\d+)',

@@ -29,9 +29,10 @@
                     <span class="task-word">Начало пути</span>
                 </button>
                 <button
-                @click="$router.push('/home/lesson/3')">
+                @click="$router.push('/home/lesson/3');
+                menuStore.toggle()">
                     <span class="task-container">2</span>
-                    <span class="task-word">task2</span>
+                    <span class="task-word">Окружение Unity</span>
                 </button>
                 <button>
                     <span class="task-container">3</span>
