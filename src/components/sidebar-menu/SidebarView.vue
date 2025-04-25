@@ -14,7 +14,7 @@
         :style=" {width: !menuStore.isOpen
         ? '250px' 
         : '0'} ">
-            
+            <LessonNav />
         </div>
         <div 
         :style="{opacity: !menuStore.isOpen
@@ -27,6 +27,7 @@
     </div>
 </template>
 <script setup>
+import LessonNav from '../main-page/LessonNav.vue';
 import {useMenuStore} from '@/stores/menuStore'
 
 const menuStore = useMenuStore()

@@ -1,6 +1,6 @@
 <template>
     <div>
-        Все права защищены &2025yo
+        Все права защищены ©2025
     </div>
 </template>
 <script setup>

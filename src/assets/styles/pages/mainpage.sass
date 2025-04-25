@@ -1,7 +1,53 @@
+.page-wrapper
+    display: flex
+    justify-content: center
 
 .page-container
     display: flex
     min-height: 100vh
-    margin: 0 5rem
-    justify-content: center
+    margin: 1rem 0
+    border-radius: 16px
+    width: 80%
+    flex-direction: column
     background: #fbfcff
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
+
+.title-container
+    display: flex
+    justify-content: center
+
+.page-content
+    display: flex
+    min-height: 90vh
+    justify-content: center
+
+.page-controls
+    display: flex
+    justify-content: space-between
+    margin: 1rem
+    button
+        font-size: 18px
+        background: #4285F4
+        color: #fff
+        border: 0
+        border-radius: 8px
+        cursor: pointer
+        box-shadow: 0 0 8px #174EA640
+        padding: 0.8rem 1.5rem
+        transition: 0.4s all
+        &:hover
+            transform: translateY(-2px)
+            box-shadow: 0 0 8px #174EA6AA
+        &:disabled
+            
+    p
+        font-family: 'Montserrat', 'Segoe UI', 'Helvetica', 'Tahoma', sans-serif
+        font-size: 20px
+        font-weight: 600
+
+.page-content
+    margin: 0 4rem
+    font-size: 21px
+    text-align: justify
+    .subtitle
+        font-size: 30px
