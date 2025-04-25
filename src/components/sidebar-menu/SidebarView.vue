@@ -11,9 +11,9 @@
         </button>   
         <div 
         class="sidebar-container"
-        :style=" {width: !menuStore.isOpen
+        :style="{width: !menuStore.isOpen
         ? '250px' 
-        : '0'} ">
+        : '0'}">
             <LessonNav />
         </div>
         <div 
@@ -28,6 +28,7 @@
 </template>
 <script setup>
 import LessonNav from '../main-page/LessonNav.vue';
+
 import {useMenuStore} from '@/stores/menuStore'
 
 const menuStore = useMenuStore()
