@@ -1,13 +1,17 @@
 <template>
+    <div class="download-button-wrapper">
+        <button 
+        @click="downloadPdf"
+        class="download-button">
+            <img src="@/assets/download.svg" /><label>Скачать</label>
+        </button>
+        <p></p>
+    </div>
     <div class="page-wrapper" ref="pdfContentRef">
         <div class="page-container">
             <div class="title-container">
                 <h1>{{ currentPageData?.title }} </h1>
-                <button 
-                @click="downloadPdf"
-                class="button-container download-button">
-                    <img src="@/assets/download.svg" />
-                </button>
+                
             </div>
             
             <div class="page-content">
@@ -15,12 +19,12 @@
                 class="content" 
                 v-html="currentPageData?.content"></div>
             </div>
-            <div class="page-controls">
-                <button class="button-container" @click="prev" :disabled="currentPage === 0">Назад</button>
-                <p>{{ currentPage + 1 }} из {{ pages.length }}</p>
-                <button class="button-container" @click="next" :disabled="currentPage === pages.length - 1">Вперед</button>
-            </div>
         </div>
+    </div>
+    <div class="page-controls">
+        <button class="button-container" @click="prev" :disabled="currentPage === 0">Назад</button>
+        <p>{{ currentPage + 1 }} из {{ pages.length }}</p>
+        <button class="button-container" @click="next" :disabled="currentPage === pages.length - 1">Вперед</button>
     </div>
 </template>
 <script setup>
@@ -54,12 +58,20 @@ function next(){
     const newPageNumber = currentPage.value + 2;
     if (newPageNumber > pages.value.length) return
     router.push(`/home/lesson/${newPageNumber}`)
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })
 }
 
 function prev(){
     const newPageNumber = currentPage.value
     if (newPageNumber < 1) return
     router.push(`/home/lesson/${newPageNumber}`)
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })
 }
 
 const pdfContentRef = ref(null)
@@ -67,12 +79,35 @@ const pdfContentRef = ref(null)
 function downloadPdf(){
     const element = pdfContentRef.value
     if(!element) return
-    html2pdf(element, {
+    const clone = element.cloneNode(true)
+    const pageContainer = clone.querySelector('.page-container')
+    if(pageContainer){
+        pageContainer.style.width = '100%'
+    }
+
+    const tempDiv = document.createElement('div')
+    tempDiv.style.position = 'fixed'
+    tempDiv.style.left = '-9999px'
+    tempDiv.appendChild(clone)
+    document.body.appendChild(tempDiv)
+
+    html2pdf(clone, {
     margin: 0,
     filename: `${currentPageData.value.title || 'lesson'}.pdf`,
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
+    html2canvas: 
+        {       
+                scale: 2,
+                onclone: (clonedDoc) => {
+                const container = clonedDoc.querySelector('.page-container')
+                if(container){
+                    container.style.width = '100%'
+                }
+            }
+        },
     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  }).finally(() => {
+    document.body.removeChild(tempDiv)
   })
 }
 </script>

@@ -13,7 +13,9 @@
                 <img src="@/assets/menu/reference.svg" alt="">
                 <span>Ссылки</span>
             </button>
-            <button>
+            <button
+            @click="$router.push('/about');
+            menuStore.toggle()">
                 <img src="@/assets/menu/info.svg" alt="">
                 <span>Что такое</span>
             </button>

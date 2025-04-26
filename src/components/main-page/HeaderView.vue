@@ -14,11 +14,12 @@
           главная
         </button>
         <button
-        @click="this.$router.replace('/references')">
+        @click="this.$router.push('/references')">
           <span class="emoji">📚</span>
           ссылки
         </button>
-        <button>
+        <button
+        @click="$router.push('/about')">
           <span class="emoji">ℹ️</span>
           что такое
         </button>
