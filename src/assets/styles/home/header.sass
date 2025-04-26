@@ -14,7 +14,6 @@
     .sub-right-container
         display: flex
         flex-direction: row
-        margin: .6rem 0
         gap: 1.5rem
         button
             background: #BBC8DB
@@ -36,3 +35,15 @@
     h2
         color: #e4ebf5
         cursor: pointer
+
+@media (max-width: 480px)
+    .header-container
+        flex-direction: column
+    .right-container
+        display: flex
+        .sub-right-container
+            display: flex
+            justify-content: center
+            button
+                padding: 0.5rem
+                font-size: 17px

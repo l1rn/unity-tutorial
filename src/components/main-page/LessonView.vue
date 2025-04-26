@@ -18,7 +18,7 @@
             <div class="page-controls">
                 <button class="button-container" @click="prev" :disabled="currentPage === 0">Назад</button>
                 <p>{{ currentPage + 1 }} из {{ pages.length }}</p>
-                <button class="button-container" @click="next" :disabled="currentPage === pages.length - 1">Следующая</button>
+                <button class="button-container" @click="next" :disabled="currentPage === pages.length - 1">Вперед</button>
             </div>
         </div>
     </div>

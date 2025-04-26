@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="left-container">
       <div class="title-container">
-        <h2 @click="this.$router.push('/')">unity brain <span>👅</span> tutorial</h2>
+        <h2 @click="this.$router.push('/')">unity <span>🕹️</span> tutorial</h2>
       </div>
       
     </div>
