@@ -10,10 +10,8 @@
     <div class="page-wrapper" ref="pdfContentRef">
         <div class="page-container">
             <div class="title-container">
-                <h1>{{ currentPageData?.title }} </h1>
-                
-            </div>
-            
+                <h1>{{ currentPageData?.title }} </h1>    
+            </div>           
             <div class="page-content">
                 <div
                 class="content" 
@@ -110,6 +108,7 @@ function downloadPdf(){
     document.body.removeChild(tempDiv)
   })
 }
+
 </script>
 
 <style lang="sass">
