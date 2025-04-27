@@ -13,10 +13,18 @@
                 <h1>{{ currentPageData?.title }} </h1>    
             </div>           
             <div class="page-content">
-                <div
-                class="content" 
-                v-html="currentPageData?.content"></div>
-            </div>
+                <!-- <div
+                    class="content" 
+                    v-html="currentPageData?.content">
+                </div> -->
+                <component :is="currentPageData?.content"></component>
+                <div 
+                    v-if="fullscreenImg" 
+                    class="fullsreen-overlay" 
+                    @click="fullscreenImg = null">
+                    <img :src="fullscreenImg" />
+                </div>
+            </div>  
         </div>
     </div>
     <div class="page-controls">
