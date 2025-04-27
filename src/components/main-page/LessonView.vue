@@ -17,7 +17,7 @@
                     class="content" 
                     v-html="currentPageData?.content">
                 </div> -->
-                <component :is="currentPageData?.content"></component>
+                <component class="content" :is="currentPageData?.comp"></component>
                 <div 
                     v-if="fullscreenImg" 
                     class="fullsreen-overlay" 
@@ -34,12 +34,12 @@
     </div>
 </template>
 <script setup>
-import pagesData from "@/content/pages"
+import pagesData from "@/content/pages.js"
 import html2pdf from "html2pdf.js"
-import { computed, onMounted, ref, watch } from "vue"
+import { computed, ref, watch } from "vue"
 import { useRoute, useRouter } from "vue-router"
 
-const pages = ref([])
+const pages = pagesData
 const route = useRoute()
 const router = useRouter()
 const currentPage = ref(0)
@@ -48,21 +48,18 @@ if (route.params.page) {
     currentPage.value = Number(route.params.page) - 1
 }
 
-onMounted(() => {
-    pages.value = pagesData
-})
-
 watch(() => route.params.page, (newPage) => {
     if(newPage){
         currentPage.value = Number(newPage) - 1
     }
 })
 
-const currentPageData = computed(() => pages.value[currentPage.value] || {})
+const currentPageData = computed(() => pages[currentPage.value] || {})
 
+// next page
 function next(){
     const newPageNumber = currentPage.value + 2;
-    if (newPageNumber > pages.value.length) return
+    if (newPageNumber > pages.length) return
     router.push(`/home/lesson/${newPageNumber}`)
     window.scrollTo({
         top: 0,
@@ -70,6 +67,7 @@ function next(){
     })
 }
 
+// previous page
 function prev(){
     const newPageNumber = currentPage.value
     if (newPageNumber < 1) return
@@ -80,6 +78,7 @@ function prev(){
     })
 }
 
+// pdf
 const pdfContentRef = ref(null)
 
 function downloadPdf(){
