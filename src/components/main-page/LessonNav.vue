@@ -60,9 +60,12 @@
         <div class="item-container">
             <label class="medium-label">Глава 2</label>
             <nav>
-                <button>
+                <button
+                @click="$router.push('/home/lesson/5');
+                menuStore.toggle();
+                scrollToTop()">
                     <span class="task-container">1</span>
-                    <span class="task-word">Начало пути</span>
+                    <span class="task-word">Ассеты</span>
                 </button>
                 <button>
                     <span class="task-container">2</span>

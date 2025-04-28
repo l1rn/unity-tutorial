@@ -1,6 +1,6 @@
 <template>
     <div>
-    <h3>🔥 Первый скрипт</h3>
+    <h2>🔥 Первый скрипт</h2>
     <hr />
     <div class="third-task-container">
         <div class="first-section">

@@ -33,12 +33,15 @@
     border: 0
     border-radius: 8px
     cursor: pointer
-    box-shadow: 0 0 8px #174EA640
     padding: 0.6rem 1.5rem
     transition: 0.4s all
     font-weight: 600
     font-size: 20px
     width: 200px
+    &:not(:disabled)
+        box-shadow: 0 0 8px #174EA640
+    &:disabled
+        box-shadow: 0   
 
 .download-button
     display: flex
@@ -65,10 +68,13 @@
     justify-content: space-evenly
     margin: 1rem
     button
-        &:hover
+        &:not(:disabled):hover
             transform: translateY(-2px)
             box-shadow: 0 0 8px #174EA6AA
         &:disabled
+            cursor: not-allowed
+            background: #aaa9a9
+            
             
     p
         font-family: 'Montserrat', 'Segoe UI', 'Helvetica', 'Tahoma', sans-serif
