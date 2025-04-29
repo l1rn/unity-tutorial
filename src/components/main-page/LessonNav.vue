@@ -67,9 +67,12 @@
                     <span class="task-container">1</span>
                     <span class="task-word">Ассеты</span>
                 </button>
-                <button>
+                <button
+                @click="$router.push('/home/lesson/6');
+                menuStore.toggle();
+                scrollToTop()">
                     <span class="task-container">2</span>
-                    <span class="task-word">task2</span>
+                    <span class="task-word">Механика машины</span>
                 </button>
                 <button>
                     <span class="task-container">3</span>

@@ -20,6 +20,6 @@
 <script>
 
 </script>
-<style lang="">
+<style scoped lang="">
 
 </style>
