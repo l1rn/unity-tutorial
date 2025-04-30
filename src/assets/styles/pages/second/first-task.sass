@@ -8,21 +8,53 @@
         width: 100%
         max-width: 1000px
     .info-tip
+        background: #D2E3FC
+        padding: 0.2rem 0.4rem
+        border-radius: 8px
+    .help-tip
         background: #CEEAD6
         padding: 0.2rem 0.4rem
         border-radius: 8px
     .download-section
         display: flex
         flex-direction: column
-        .unitypackage-wrapper
+        .asset-store
             display: flex
-            justify-content: center
-            .unitypackage-import
-                display: flex
-                max-width: 1000px
-                gap: 1rem
-                img
-                    max-width: 400px
+            max-width: 1400px
+            width: 100%
+            justify-content: space-evenly
+            align-items: center
+            p
+                background: #F1F3F4
+                padding: 0.2rem 0.4rem
+                border-radius: 8px
+                max-width: 500px
+            img
+                max-width: 800px
+        .unitypackage-import
+            display: flex
+            max-width: 1100px
+            width: 100%
+            justify-content: space-evenly
+            align-items: center
+            p
+                background: #F1F3F4
+                padding: 0.2rem 0.4rem
+                border-radius: 8px
+                max-width: 500px
+            img
+                max-width: 500px
+    .work-example
+        background: #F1F3F4
+        padding: 0.2rem 0.4rem
+        border-radius: 8px
+        max-width: 1000px
+    .warning-block
+        background:#FEEFC3
+        border-radius: 8px 
+        padding: 0 .4rem 
+        color: #1E293B
+
     .task-title
         display: flex
         align-items: center
@@ -31,6 +63,18 @@
     .special-tip-for-task
         p
             max-width: 590px
+.success-block
+    display: flex 
+    justify-content: center
+    
+    p
+        border-radius: 16px
+        padding: .4rem
+        background: #CEEAD6
+        max-width: 800px
+        
 @media (max-width: 480px)
+    .asset-store
+        flex-direction: column
     .unitypackage-import
         flex-direction: column

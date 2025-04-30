@@ -149,19 +149,19 @@
                     </p>
                 </li>
                 <div class="code-section">
-                        <code class="code-sample">
-                            <span class="name">transform</span>
-                            <span class="name">.</span>
-                            <span class="yellow">Translate</span>
-                            <span class="name">(</span>
-                            <span class="light-blue">move</span>
-                            <span class="yellow"> * </span>
-                            <span class="name">speed</span>
-                            <span class="yellow"> * </span>
-                            <span class="method">Time</span>
-                            <span class="name">.deltaTime);</span>
-                        </code>
-                    </div>
+                    <code class="code-sample">
+                        <span class="name">transform</span>
+                        <span class="name">.</span>
+                        <span class="yellow">Translate</span>
+                        <span class="name">(</span>
+                        <span class="light-blue">move</span>
+                        <span class="yellow"> * </span>
+                        <span class="name">speed</span>
+                        <span class="yellow"> * </span>
+                        <span class="method">Time</span>
+                        <span class="name">.deltaTime);</span>
+                    </code>
+                </div>
                     <br>
                 <li>
                     <p>
