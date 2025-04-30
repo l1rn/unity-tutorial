@@ -103,7 +103,58 @@
         max-width: 90%
         max-height: 90%
         border-radius: 8px
-        
+
+.page-content
+    .content
+        .combination
+            font-size: 0.9rem
+            line-height: 1.5
+            
+        .code-section
+            width: 100%
+            max-width: 1000px
+            margin: 1.5rem auto
+            font-size: 0.9rem
+            line-height: 1.5
+            border: 1px solid $code-border
+            border-radius: 8px
+            overflow: hidden
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1)
+            .serialize     
+                color: #4FC1E8 
+            .variable     
+                color: #D2B4DE
+            .name         
+                color: $code-text 
+            .equals       
+                color: $code-text 
+            .value        
+                color: #66CC66 
+            .class         
+                color: #8EEC8E
+            .method       
+                color: #00D1C1 
+            .yellow       
+                color: #FFE599 
+            .light-blue   
+                color: #CFE2F3 
+            .blue         
+                color: #a5c5fc 
+            .light-red   
+                color: #F4CCCC 
+            .purple       
+                color: #dfaac4
+            // Syntax highlighting colors
+            .code-sample
+                background: $code-bg
+                padding: 0.5rem 1.5rem
+                position: relative
+                overflow-x: auto
+                display: block
+                text-align: left
+                span
+                    font-size: 18px
+                    font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace    
 @media (max-width: 480px)
     .download-button-wrapper
         gap: 0
@@ -113,3 +164,10 @@
         max-width: 100px 
         font-size: 16px
         padding: 0 
+
+    .page-content
+        .content
+            .code-section
+                .code-sample
+                    span
+                        font-size: 14px

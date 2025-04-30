@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>🚗 Механика движения машины</h2>
+        <hr>
         <div class="content-wrapper-for-fifth">
             <div class="intro-block">
                 <p>🎯 Теперь, когда у нас есть готовая модель с текстурами, пришло время добавить физику и управление!</p>
@@ -23,7 +24,7 @@
                         <img src="/images/fifth/rigid-body.webp" alt="Добавление Rigidbody">
                     </li>
                     <li>
-                        <p><b>Mesh Collider</b> с параметром Convex:</p>
+                        <p><b>Mesh Collider</b> с параметром Convex применить на все дочерние объекты:</p>
                         <p>Add Component ➔ Mesh Collider → ✅ Convex</p>
                         <img src="/images/fifth/mesh-convex.webp" alt="Настройка коллайдера">
                     </li>
@@ -32,10 +33,19 @@
                     </li>
                 </ol>
             </div>
+            <div class="problem-with-material">
+                    <h3>⚠️ Решение проблем</h3>
+                    <p>
+                        Если фары машины не светятся:
+                    </p>
+                    <img src="/images/fifth/fix-problem-with-light.webp" alt="Настройка освещения">
+                </div> 
             <div>
                 <h3>💻 Скриптинг</h3>
                 <p>Мы добавим метод <b>Rotate</b> для реалистичного поворота машины:</p>
                 <img src="/images/fifth/script.webp" alt="script">
+                <p>Vector3.forward = Vector3(0, 0, 1)</p>
+                <p>Vector3.up = Vector3(0, 1, 0)</p>
                 <div class="obstacles-block">
                     <h3>🪵 Добавляем препятствия</h3>
                     <p>Для тестирования физики рекомендуем использовать готовый ассет:</p>
@@ -57,9 +67,6 @@
                         <span class="method">GameObject </span>
                         <span class="name">player;</span>
                     </code>
-                </div>
-                <br>
-                <div class="code-section">
                     <code class="code-sample">
                         <span class="blue">public </span>
                         <span class="value">Vector3 </span>
@@ -75,29 +82,27 @@
                         <span class="name">);</span>
                     </code>
                 </div>
-                <br>
                 <p>
                     И в методе LateUpdate будем уже говорить Unity, что меняй положение камеры, так - <b>Позиция камеры = Позиция игрока + оффсет</b>
                 </p>
                 <div class="code-section">
                     <code class="code-sample">
-                        <span class="name">transform.position = player.transform.position</span>
+                        <span class="blue">void</span>
+                        <span class="yellow"> LateUpdate() </span>
+                        <span class="name">{</span>
+                        <br>
+                        <span class="name" style="margin-left: 20px;">transform.position = player.transform.position</span>
                         <span class="yellow"> + </span>
                         <span class="name">offset;</span>
+                        <br>
+                        <span class="name">}</span>
                     </code>
                 </div>
                 <p class="success">🎉 
                     Прикрепите скрипт к камере — теперь она будет плавно следовать за машиной!
-                </p>                <div>
-                    
-                </div>
-                <div class="problem-with-material">
-                    <h3>⚠️ Решение проблем</h3>
-                    <p>
-                        Если фары машины не светятся:
-                    </p>
-                    <img src="/images/fifth/fix-problem-with-light.webp" alt="Настройка освещения">
-                </div>            
+                </p>               
+                <h3>😎🏆😊 Попробуйте покататься</h3>
+                           
             </div>
 
             <div class="task-section">

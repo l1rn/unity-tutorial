@@ -1,3 +1,7 @@
+$code-bg: #1E1E1E
+$code-text: #DCDCDC
+$code-border: lighten($code-bg, 10%)
+
 @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap')
 .page-content
     .content
@@ -16,61 +20,20 @@
                 padding: 0.3rem 0.4rem
                 background: #CFE2F3
 
-        .code-section
-            width: 100%
-            font-weight: 600
-            .code-sample
-                background: #1E1E1E
-            .serialize
-                color: #4FC1E8
-            .variable 
-                color: #D2B4DE
-            .name
-                color: #DCDCDC
-            .equals
-                color: #DCDCDC
-            .yellow
-                color: #FFE599
-            .value
-                color: #66CC66
-            .class
-                color: #8EEC8E
-            .method
-                color: #00D1C1
-            .yellow
-                color: #FFE599
-            .light-blue
-                color: #CFE2F3
-            .blue
-                color: #a5c5fc
-            .light-red
-                color: #F4CCCC
-            .code-sample
-                padding: 4px
-                border-radius: 5px
-                white-space: pre-wrap
-        code
-            span
-                font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace
-        .script-explain
-            li
-                margin-bottom: 1rem
+        
+
+            .serialize-pic
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
                 p
-                    padding: 0.4rem 0.2rem
+                    background: #CEEAD6
+                    max-width: 800px
                     border-radius: 8px
-                    background: #CFE2F3
-        .serialize-pic
-            display: flex
-            flex-direction: column
-            justify-content: center
-            align-items: center
-            p
-                background: #CEEAD6
-                max-width: 800px
-                border-radius: 8px
-                padding: 0.4rem 2rem
-            img
-                max-width: 550px
+                    padding: 0.4rem 2rem
+                img
+                    max-width: 550px
         .special-tip
             background: #F4CCCC
             padding: 0.4rem
@@ -93,5 +56,9 @@
             margin-bottom: 1rem
 
 @media (max-width: 480px)
-    code
-        font-size: 17px
+    .page-content
+        .content
+            .code-section
+                .code-sample
+                    span
+                        font-size: 14px
