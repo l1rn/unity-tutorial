@@ -87,9 +87,27 @@
         <div class="item-container">
             <label class="hard-label">Глава 3</label>
             <nav>
-                <button><span class="task-container">1</span><span class="task-word">task1</span></button>
-                <button><span class="task-container">2</span><span class="task-word">task2</span></button>
-                <button><span class="task-container">3</span><span class="task-word">task3</span></button>
+                <button
+                @click="$router.push('/home/lesson/8');
+                menuStore.toggle();
+                scrollToTop()">
+                    <span class="task-container">1</span>
+                    <span class="task-word">Коробка передач</span>
+                </button>
+                <button
+                @click="$router.push('/home/lesson/9');
+                menuStore.toggle();
+                scrollToTop()">
+                    <span class="task-container">2</span>
+                    <span class="task-word">task2</span>
+                </button>
+                <button
+                @click="$router.push('/home/lesson/10');
+                menuStore.toggle();
+                scrollToTop()">
+                    <span class="task-container">3</span>
+                    <span class="task-word">task3</span>
+                </button>
             </nav>
         </div>
         
