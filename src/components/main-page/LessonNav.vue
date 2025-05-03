@@ -92,7 +92,7 @@
                 menuStore.toggle();
                 scrollToTop()">
                     <span class="task-container">1</span>
-                    <span class="task-word">Коробка передач</span>
+                    <span class="task-word">2D мир</span>
                 </button>
                 <button
                 @click="$router.push('/home/lesson/9');

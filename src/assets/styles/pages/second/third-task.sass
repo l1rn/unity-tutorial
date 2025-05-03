@@ -1,10 +1,44 @@
-img
-    margin: 1rem auto
-    height: auto
-    display: block
-    width: 100%
-    max-width: 1000px
+.content-wrapper-for-sixth
+    img
+        margin: 1rem auto
+        height: auto
+        display: block
+        width: 100%
+        max-width: 1000px
 
-.recomendations-properties-car
-    li
-        font-family: 'Montserrat'
+    .recomendations-properties-car
+        li
+            font-family: 'Montserrat'
+    .task-section    
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        
+        .tasks-list
+            max-width: 800px
+            font-weight: 500
+    
+    .success-section
+        display: flex
+        justify-content: center
+        p
+            border-radius: 16px
+            padding: .4rem
+            background: #CEEAD6
+            max-width: 800px
+    .question-section
+        display: flex
+        justify-content: center 
+        p
+            border-radius: 16px
+            padding: .4rem
+            background: #cedeea
+            max-width: 800px
+@media (max-width: 480px)
+    .content-wrapper-for-sixth
+        .task-section
+            width: 95%
+        .big-code
+            code
+                max-width: 335px
