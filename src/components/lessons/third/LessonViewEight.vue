@@ -79,7 +79,71 @@
                 <li>
                     <h3>Пример кода для управления персонажем</h3>
                     <p>Создайте скрипт <b>PlayerController.cs</b> и добавьте его к персонажу:</p>
+                    <div class="code-section">
+                        <code class="code-sample">
+                            <span class="blue">void FixedUpdate</span>
+                            <span class="name">() {</span>
+                            <br>
+                            <span class="yellow" style="margin-left: 20px;">HandleMovement</span>
+                            <span class="name">();</span>
+                            <br>
+                            <span class="yellow" style="margin-left: 20px;">ApplyGravity</span>
+                            <span class="name">();</span>
+                            <br>
+                            <span class="name">}</span>
+                        </code>
+                    </div>
                 </li>
+                <li>
+                    <h3>Как связать персонажа с картой (Tilemap)</h3>
+                    <ul>
+                        <li><p>Убедитесь, что у вашего Tilemap есть Tilemap Collider 2D (как мы делали раньше).</p></li>
+                        <li><p>Настройте тег "Ground" для Tilemap: <br>
+                            Выберите <b>Tilemap → в Inspector → Tag → Add Tag → создайте тег "Ground".</b>
+                        </p></li>
+                        <li>
+                            <p>Персонаж будет сталкиваться с картой благодаря коллайдерам.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Организация Hierarchy</h3>
+                    <p>Чтобы сцена не превратилась в хаос, структурируйте объекты:</p>
+                    <ul>
+                        <li><p>
+                            <b>Grid</b> (с дочерними Tilemap для разных слоев: земля, декорации).
+                        </p></li>
+                        <li>
+                            <p><b>Player</b> (персонаж).</p>
+                        </li>
+                        <li>
+                            <p><b>Background</b> (фон).</p>
+                        </li>
+                        <li><p>
+                            <b>UI</b> (если есть интерфейс).
+                        </p></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Проверьте результат</h3>
+                    <p>Запустите игру (Play):</p>
+                    <ul>
+                        <li>Персонаж должен двигаться кнопками A/D или ←/→.</li>
+                        <li>Прыжок — пробел.</li>
+                        <li>Если он проваливается сквозь пол, проверьте коллайдеры на Tilemap и персонаже!</li>
+                    </ul>
+                </li>
+                <li><h3>Если что-то не работает</h3></li>
+                <h4>Персонаж не двигается?</h4>
+                <ul><li>
+                    Проверьте, добавлен ли Rigidbody2D и скрипт PlayerController.
+                </li></ul>
+                <h4>Персонаж проходит сквозь стены?</h4>
+                <ul><li>
+                    Убедитесь, что у Tilemap есть Tilemap Collider 2D.</li></ul>
+                <h4>Фон не отображается?</h4>
+                <ul><li>
+                    Проверьте Sorting Layer и Order in Layer у фона.</li></ul>
             </ol>
         </div>
     </div>
@@ -87,5 +151,5 @@
 <script>
 </script>
 <style scoped lang="sass">
-    
+@import '@/assets/styles/pages/third/second-task.sass'
 </style>
