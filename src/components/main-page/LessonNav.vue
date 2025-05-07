@@ -106,7 +106,7 @@
                 menuStore.toggle();
                 scrollToTop()">
                     <span class="task-container">3</span>
-                    <span class="task-word">task3</span>
+                    <span class="task-word">Анимации</span>
                 </button>
             </nav>
         </div>
