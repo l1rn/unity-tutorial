@@ -117,6 +117,7 @@
                         <ol>
                             <li><p>Выберите ваш <b>Tilemap</b> в Hierarchy.</p></li>
                             <li><p>В Inspector нажмите <b>Add Component → Tilemap Collider 2D.</b></p></li>
+                            <li><p>Главное, чтобы у вас был разделен тайл земли и травы</p></li>
                         </ol>
                     </li>
                     <li>
@@ -153,6 +154,7 @@
                         <li><p>Добавьте спрайт игрока, не в Grid</p></li>
                     </ol>
                 </div>
+                
                 <h4>Результат будет примерно такой:</h4>
                 <img src="/images/seventh/result.webp" alt="result">
             </div>

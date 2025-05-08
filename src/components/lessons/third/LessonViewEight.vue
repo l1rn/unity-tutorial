@@ -77,34 +77,261 @@
                     <img src="/images/eighth/background.webp" alt="background">
                 </li>
                 <li>
+                    <h3>Настройка тайлов и персонажа</h3>
+                    <p>План такой:</p>
+                    <p>- Зададим LayerMask для нашей земли (Ground или Tilemap)</p>
+                    <ul>
+                        <li>
+                            <p>Переходим в <b>Inspector → Add Layer → User Layer 8 → Ground</b></p>
+                        </li>
+                        <img src="/images/eighth/ground-layer.webp" alt="ground-layer">
+                    </ul>
+                    <p>- Создадим объект дочерний к Player и сделаем Ground Check</p>
+                    <ul>
+                        <li><p>Можно создать любой, Например (<b>Create Object → Sprites → Square</b>)</p></li>
+                        <li><p>Выключите Sprite Render (если есть)</p></li>
+                    </ul>
+                    <p>- Задайте Layer для для вашей земли</p>
+                    <ul>
+                        <li>Переходим в <b>Inspector → Layer → Ground</b></li>
+                    </ul>
+                </li>
+                <li>
                     <h3>Пример кода для управления персонажем</h3>
                     <p>Создайте скрипт <b>PlayerController.cs</b> и добавьте его к персонажу:</p>
-                    <div class="code-section">
+                    <p>В скрипте все public для наглядности, но в будущем избегайте такой практики используйте 
+                        <span class="code-example">[Serialized field]</span>
+                        + <span class="code-example">private</span>, если что-то надо вывести в Inspector
+                         или для отладки используйте <span class="code-example">Debug.Log();</span></p>
+                </li>
+                <div class="code-section">
                         <code class="code-sample">
-                            <span class="blue">void FixedUpdate</span>
-                            <span class="name">() {</span>
+                            <span class="blue">public class</span>
+                            <span class="method"> PlayerController</span>
+                            <span class="name"> : </span>
+                            <span class="method">MonoBehaviour</span>
+                            <span class="name"> {</span>
                             <br>
-                            <span class="yellow" style="margin-left: 20px;">HandleMovement</span>
+                            <span class="blue" style="margin-left: 40px;">public float</span>
+                            <span class="name"> runSpeed = </span>
+                            <span class="value">5f</span>
+                            <span class="name">;</span>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public float</span>
+                            <span class="name"> jumpForce = </span>
+                            <span class="value">5f</span>
+                            <span class="name">;</span>
+                            <br>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public </span>
+                            <span class="method">Rigidbody2D </span>
+                            <span class="name">rb;</span>
+                            <br>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public bool </span>
+                            <span class="name">isGrounded;</span>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public</span>
+                            <span class="method"> Transform </span>
+                            <span class="name">groundCheckPoint;</span>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public float </span>
+                            <span class="name">groundCheckRadius;</span>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public</span>
+                            <span class="value"> LayerMask </span>
+                            <span class="name">groundCheckPoint;</span>
+                            <br>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public bool </span>
+                            <span class="name">jumpPressed = </span>
+                            <span class="blue">false</span>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public bool </span>
+                            <span class="name">APressed = </span>
+                            <span class="blue">false</span>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">public bool </span>
+                            <span class="name">DPressed = </span>
+                            <span class="blue">false</span>
+                            <br>
+                            <br>
+                            <span class="blue" style="margin-left: 40px;">void Awake</span>
+                            <span class="name">()</span><br>
+                            <span class="name" style="margin-left: 40px;">{</span><br>
+                            <span class="name" style="margin-left: 80px;">rb = </span>
+                            <span class="yellow">GetComponent</span>
+                            <span class="name">&lt;</span>
+                            <span class="method">Rigidbody2D</span>
+                            <span class="name">></span>
                             <span class="name">();</span>
                             <br>
-                            <span class="yellow" style="margin-left: 20px;">ApplyGravity</span>
-                            <span class="name">();</span>
+                            <span class="name" style="margin-left: 40px;">}</span><br>
+                            <span class="blue" style="margin-left: 40px;">void Update</span>
+                            <span class="name">() {</span><br>
+                            <span class="purple" style="margin-left: 80px;">if </span>
+                            <span class="name">(</span>
+                            <span class="method">Input</span>
+                            <span class="name">.</span>
+                            <span class="yellow">GetKeyDown</span>
+                            <span class="name">(</span>
+                            <span class="value">KeyCode</span>
+                            <span class="name">.Space)) jumpPressed = </span>
+                            <span class="blue">true</span>
+                            <span class="name">;</span><br>
+                            <span class="purple" style="margin-left: 80px;">if </span>
+                            <span class="name">(</span>
+                            <span class="method">Input</span>
+                            <span class="name">.</span>
+                            <span class="yellow">GetKeyDown</span>
+                            <span class="name">(</span>
+                            <span class="value">KeyCode</span>
+                            <span class="name">.A)) APressed = </span>
+                            <span class="blue">true</span>
+                            <span class="name">;</span><br>
+                            <span class="purple" style="margin-left: 80px;">if </span>
+                            <span class="name">(</span>
+                            <span class="method">Input</span>
+                            <span class="name">.</span>
+                            <span class="yellow">GetKeyDown</span>
+                            <span class="name">(</span>
+                            <span class="value">KeyCode</span>
+                            <span class="name">.D)) DPressed = </span>
+                            <span class="blue">true</span>
+                            <span class="name">;</span><br>
+                            <span class="name one-indent">}</span>
+                            <br>
+                            <span class="blue one-indent">void FixedUpdate</span>
+                            <span class="name">() {</span><br>
+                            <span class="name two-indent">isGrounded = </span>
+                            <span class="method">Physics2D</span>
+                            <span class="name">.</span>
+                            <span class="yellow">OverlapCircle</span>
+                            <span class="name">(groundCheckPoint.position, groundCheckRadius, groundLayer);</span>
+                            <br>
+                            <span class="purple two-indent">if</span>
+                            <span class="name"> (APressed)</span>
+                            <br>
+                            <span class="name two-indent">{</span>
+                            <br>
+                            <span class="name three-indent">body.linearVelocity = </span>
+                            <span class="blue">new</span>
+                            <span class="value"> Vector2</span>
+                            <span class="name">(-runSpeed, body.linearVelocity.y);</span>
+                            <br>
+                            <span class="name three-indent">transform.eulerAngles = </span>
+                            <span class="blue">new</span>
+                            <span class="value"> Vector3</span>
+                            <span class="name">(transform.eulerAngles.x, </span>
+                            <span class="value">180</span>
+                            <span class="name">, transform.eulerAngles.z);</span>
+                            <br>
+                            <span class="name three-indent">APressed = </span>
+                            <span class="blue">false</span>
+                            <span class="name">;</span>
+                            <br>
+                            <span class="name two-indent">}</span>
+                            <br>
+                            <span class="purple two-indent">else if</span>
+                            <span class="name"> (DPressed)</span>
+                            <br>
+                            <span class="name two-indent">{</span>
+                            <br>
+                            <span class="name three-indent">body.linearVelocity = </span>
+                            <span class="blue">new</span>
+                            <span class="value"> Vector2</span>
+                            <span class="name">(runSpeed, body.linearVelocity.y);</span>
+                            <br>
+                            <span class="name three-indent">transform.eulerAngles = </span>
+                            <span class="blue">new</span>
+                            <span class="value"> Vector3</span>
+                            <span class="name">(transform.eulerAngles.x, </span>
+                            <span class="value">0</span>
+                            <span class="name">, transform.eulerAngles.z);</span>
+                            <br>
+                            <span class="name three-indent">DPressed = </span>
+                            <span class="blue">false</span>
+                            <span class="name">;</span>
+                            <br>
+                            <span class="name two-indent">}</span>
+                            <br>
+                            <span class="purple two-indent">else</span>
+                            <br>
+                            <span class="name two-indent">{</span>
+                            <br>
+                            <span class="name three-indent">body.linearVelocity = </span>
+                            <span class="blue">new</span>
+                            <span class="value"> Vector2</span>
+                            <span class="name">(0, body.linearVelocity.y);</span>
+                            <br>
+                            <span class="name two-indent">}</span>
+                            <br>
+                            <br>
+                            <span class="purple two-indent">if</span>
+                            <span class="name"> (jumpPressed && isGrounded)</span>
+                            <br>
+                            <span class="name two-indent">{</span>
+                            <br>
+                            <span class="name three-indent">body.linearVelocity = </span>
+                            <span class="blue">new</span>
+                            <span class="value"> Vector2</span>
+                            <span class="name">(body.position.x, jumpForce);</span>
+                            <br>
+                            <span class="name three-indent">jumpPressed = </span>
+                            <span class="blue">false</span>
+                            <span class="name">;</span>
+                            <br>
+                            <span class="name two-indent">}</span>
+                            <br>
+                            <br>
+                            <span class="name" style="margin-left: 40px;">}</span>
+                            <br>
+                            <span class="name">// Для отладки триггера на землю</span>
+                            <br>
+                            <span class="blue one-indent">void OnDrawGizmos</span>
+                            <span class="name">()</span>
+                            <br>
+                            <span class="name one-indent">{</span>
+                            <br>
+                            <span class="method two-indent">Gizmos</span>
+                            <span class="name">.color = </span>
+                            <span class="value">Color</span>
+                            <span class="name">.red;</span>
+                            <br>
+                            <span class="method two-indent">Gizmos</span>
+                            <span class="yellow">.DrawWireSphere</span>
+                            <span class="name">(groundCheckPoint.position, groundCheckRadius);</span>
+                            <br>
+                            <span class="name one-indent">}</span>
                             <br>
                             <span class="name">}</span>
                         </code>
                     </div>
-                </li>
                 <li>
                     <h3>Как связать персонажа с картой (Tilemap)</h3>
+                    <p>- Убедитесь, что у вашего Tilemap есть Tilemap Collider 2D (как мы делали раньше).</p>
+                    <p>- Настройте слой "Ground" для Tilemap:</p>
                     <ul>
-                        <li><p>Убедитесь, что у вашего Tilemap есть Tilemap Collider 2D (как мы делали раньше).</p></li>
-                        <li><p>Настройте тег "Ground" для Tilemap: <br>
-                            Выберите <b>Tilemap → в Inspector → Tag → Add Tag → создайте тег "Ground".</b>
-                        </p></li>
-                        <li>
-                            <p>Персонаж будет сталкиваться с картой благодаря коллайдерам.</p>
-                        </li>
+                        <li>Выберите <b>Tilemap → в Inspector → Layer → Ground</b></li>
                     </ul>
+                    <p>- Соединить оставшиеся объекты у персонажа</p>
+                    <ul>
+                        <li><p><b>Inspector → Ground Check Point → GroundCheck</b> (Дочерний объект, который вы призывали)</p></li>
+                        <li><p><b>Inspector → Ground Check Radius → <span style="font-family: 'Montserrat';">0.55</span></b></p></li>
+                        <li><p><b>Inspector → Ground Layer → Ground</b></p></li>
+                    </ul>
+                    <img src="/images/eighth/link-player.webp" alt="link-player">
+                    <ol>
+                        <li>
+                            <p>Вы можете оставить пустым <b>Body</b> потому что у нас при запуске уже ищет Rigidbody.</p>
+                        </li>
+                        <li>
+                            <p>Далее вставляем наш объект по которому будет происходить чек с <b>Ground</b></p>
+                        </li>
+                        <li>
+                            <p>Даем ему радиус и видим<b>(OnDrawGizmos)</b> как меняется область соприкосновения</p>
+                        </li>
+                    </ol>
                 </li>
                 <li>
                     <h3>Организация Hierarchy</h3>
@@ -128,7 +355,7 @@
                     <h3>Проверьте результат</h3>
                     <p>Запустите игру (Play):</p>
                     <ul>
-                        <li>Персонаж должен двигаться кнопками A/D или ←/→.</li>
+                        <li>Персонаж должен двигаться кнопками A/D</li>
                         <li>Прыжок — пробел.</li>
                         <li>Если он проваливается сквозь пол, проверьте коллайдеры на Tilemap и персонаже!</li>
                     </ul>
@@ -145,6 +372,9 @@
                 <ul><li>
                     Проверьте Sorting Layer и Order in Layer у фона.</li></ul>
             </ol>
+            <h3>Пример работы</h3>
+            <img src="/gifs/eighth/result.gif" alt="result">
+            <a href="https://imgur.com/a/CHTbg5P" target="_blank" class="gif-link">🔗 Альтернативная ссылка на GIF</a>            
         </div>
     </div>
 </template>
