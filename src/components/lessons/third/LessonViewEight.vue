@@ -44,6 +44,7 @@
                                 <li><p><b>Rigidbody2D</b> — чтобы персонаж подчинялся физике (гравитация, столкновения).</p></li>
                                 <li><p><b>Collider2D</b>(например, BoxCollider2D) — чтобы он взаимодействовал с картой.</p></li>
                                 <li><p>Скрипт для движения (пример кода ниже).</p></li>
+                                <li><p>Поставьте галочку <b>Rigidbody2D → Constraints → Freeze Rotation → Z → ✅</b></p></li>
                             </ul>
                         </li>
                     </ol>
@@ -179,25 +180,21 @@
                             <span class="name">.Space)) jumpPressed = </span>
                             <span class="blue">true</span>
                             <span class="name">;</span><br>
-                            <span class="purple" style="margin-left: 80px;">if </span>
-                            <span class="name">(</span>
+                            <span class="name" style="margin-left: 80px;">APressed = </span>
                             <span class="method">Input</span>
                             <span class="name">.</span>
-                            <span class="yellow">GetKeyDown</span>
+                            <span class="yellow">GetKey</span>
                             <span class="name">(</span>
                             <span class="value">KeyCode</span>
-                            <span class="name">.A)) APressed = </span>
-                            <span class="blue">true</span>
+                            <span class="name">.A)</span>
                             <span class="name">;</span><br>
-                            <span class="purple" style="margin-left: 80px;">if </span>
-                            <span class="name">(</span>
+                            <span class="name" style="margin-left: 80px;">DPressed = </span>
                             <span class="method">Input</span>
                             <span class="name">.</span>
-                            <span class="yellow">GetKeyDown</span>
+                            <span class="yellow">GetKey</span>
                             <span class="name">(</span>
                             <span class="value">KeyCode</span>
-                            <span class="name">.D)) DPressed = </span>
-                            <span class="blue">true</span>
+                            <span class="name">.D)</span>
                             <span class="name">;</span><br>
                             <span class="name one-indent">}</span>
                             <br>
@@ -209,26 +206,20 @@
                             <span class="yellow">OverlapCircle</span>
                             <span class="name">(groundCheckPoint.position, groundCheckRadius, groundLayer);</span>
                             <br>
+                            <br>
+                            <span class="blue two-indent">float targetSpeed</span>
+                            <span class="name"> = </span>
+                            <span class="value">0f</span>
+                            <span class="name">;</span>
+                            <br>
+
                             <span class="purple two-indent">if</span>
                             <span class="name"> (APressed)</span>
                             <br>
                             <span class="name two-indent">{</span>
                             <br>
-                            <span class="name three-indent">body.linearVelocity = </span>
-                            <span class="blue">new</span>
-                            <span class="value"> Vector2</span>
-                            <span class="name">(-runSpeed, body.linearVelocity.y);</span>
-                            <br>
-                            <span class="name three-indent">transform.eulerAngles = </span>
-                            <span class="blue">new</span>
-                            <span class="value"> Vector3</span>
-                            <span class="name">(transform.eulerAngles.x, </span>
-                            <span class="value">180</span>
-                            <span class="name">, transform.eulerAngles.z);</span>
-                            <br>
-                            <span class="name three-indent">APressed = </span>
-                            <span class="blue">false</span>
-                            <span class="name">;</span>
+                            <span class="blue three-indent">targetSpeed</span>
+                            <span class="name"> = -runSpeed;</span>
                             <br>
                             <span class="name two-indent">}</span>
                             <br>
@@ -237,34 +228,33 @@
                             <br>
                             <span class="name two-indent">{</span>
                             <br>
-                            <span class="name three-indent">body.linearVelocity = </span>
+                            <span class="blue three-indent">targetSpeed</span>
+                            <span class="name"> = runSpeed;</span>
+                            <br>
+                            <span class="name two-indent">}</span>
+                            <br>
+                            <br>
+                            <span class="name two-indent">body.linearVelocity = </span>
                             <span class="blue">new</span>
                             <span class="value"> Vector2</span>
-                            <span class="name">(runSpeed, body.linearVelocity.y);</span>
+                            <span class="name">(</span>
+                            <span class="blue">targetSpeed</span>
+                            <span class="name">, body.linearVelocity.y);</span>
                             <br>
-                            <span class="name three-indent">transform.eulerAngles = </span>
+                            <br>
+                            <span class="purple two-indent">if </span>
+                            <span class="name">(APressed) </span>
+                            <span class="name">transform.eulerAngles = </span>
                             <span class="blue">new</span>
                             <span class="value"> Vector3</span>
-                            <span class="name">(transform.eulerAngles.x, </span>
-                            <span class="value">0</span>
-                            <span class="name">, transform.eulerAngles.z);</span>
+                            <span class="name">(0, 0, 0);</span>
                             <br>
-                            <span class="name three-indent">DPressed = </span>
-                            <span class="blue">false</span>
-                            <span class="name">;</span>
-                            <br>
-                            <span class="name two-indent">}</span>
-                            <br>
-                            <span class="purple two-indent">else</span>
-                            <br>
-                            <span class="name two-indent">{</span>
-                            <br>
-                            <span class="name three-indent">body.linearVelocity = </span>
+                            <span class="purple two-indent">else if </span>
+                            <span class="name">(DPressed) </span>
+                            <span class="name">transform.eulerAngles = </span>
                             <span class="blue">new</span>
-                            <span class="value"> Vector2</span>
-                            <span class="name">(0, body.linearVelocity.y);</span>
-                            <br>
-                            <span class="name two-indent">}</span>
+                            <span class="value"> Vector3</span>
+                            <span class="name">(0, 180, 0);</span>
                             <br>
                             <br>
                             <span class="purple two-indent">if</span>
