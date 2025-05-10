@@ -364,7 +364,7 @@
             </ol>
             <h3>Пример работы</h3>
             <img src="/gifs/eighth/result.gif" alt="result">
-            <a href="https://imgur.com/a/CHTbg5P" target="_blank" class="gif-link">🔗 Альтернативная ссылка на GIF</a>            
+            <a href="https://gifyu.com/image/bLXSg" target="_blank" class="gif-link">🔗 Альтернативная ссылка на GIF</a>            
         </div>
     </div>
 </template>

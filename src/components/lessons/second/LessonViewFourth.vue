@@ -92,6 +92,8 @@
                     </div>
                     
                     <img src="/gifs/fourth/car-material.gif" alt="car-gif">
+                    <a href="https://gifyu.com/image/bLXs1" target="_blank" class="gif-link">🔗 Альтернативная ссылка на GIF</a>            
+
                     <h4>Результат всего этого, с вашим цветом будет такой:</h4>
                 </li>
                 <li>
