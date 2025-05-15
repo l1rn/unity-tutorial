@@ -28,7 +28,7 @@
                                     Player Movement 3D
                                 </a>
                                 <a href="https://www.youtube.com/@Brackeys" target="_blank">
-                                        Brackeys
+                                        Gave dev tutorials
                                     </a>
                                     <a href="https://itch.io/developers" target="_blank">Game publish with itch.io</a>
 
@@ -54,7 +54,7 @@
                 </div>
                 
                 <div class="footer-end">
-                    <p>©2025, Ползунова. Для учебного использования.</p>
+                    <p>2025, Ползунова. Для учебного использования.</p>
                 </div>
             </div>
         </div>

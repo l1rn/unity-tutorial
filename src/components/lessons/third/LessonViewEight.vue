@@ -363,8 +363,50 @@
                     Проверьте Sorting Layer и Order in Layer у фона.</li></ul>
             </ol>
             <h3>Пример работы</h3>
+            
             <img src="/gifs/eighth/result.gif" alt="result">
             <a href="https://gifyu.com/image/bLXSg" target="_blank" class="gif-link">🔗 Альтернативная ссылка на GIF</a>            
+            <div class="before-task-block">
+                <h3>Добавление сцен</h3>
+                <p>Перед тем как начать ваше задание, обратите внимание как добавлять сцены</p>
+                <p><b>File → Build Profiles → Scene List → Add Open Scenes</b></p>
+                <img src="/images/eighth/add-scene.webp" alt="add-scene">
+            </div>
+            <div class="final-task-movement">
+                <h3 style="background: #1E293B; border-radius: 8px; padding: .4rem; color: aliceblue;">
+                    🤑 Задание: Новая сцена
+                </h3>
+                <ol class="montserrat">
+                    <li><p>😶 Создайте новую сцену</p></li>
+                    <li><p>🐉 "Нарисуйте" новую сцену (Создайте новый лвл)</p></li>
+                    <li><p>🔙 Вернитесь на старый уровень </p></li>
+                    <li>
+                        <p>👻 Создайте объект в конце уровня</p>
+                    </li>
+                    <li><p>👹 Дайте коллайдер созданной сущности поставьте галку <b>IsTrigger → ✔️</b> </p></li>
+                    <li><p>📜 Напишите скрипт, чтобы нас при касании с этим объектом переносило на другой уровень</p></li>
+                    <li><p>🥒 Создайте поднимаемые вещи(Например, гемы в папке с ассетом) на новом уровне</p></li>
+                    <li><p>🥲 Теперь сделайте так, чтобы при касании эти гемы пропадали</p></li>
+                </ol>
+                <div class="hint-block">
+                    <p class="special-tip-for-task">🎃 <b>Подсказка 1:</b> Триггер на вход в коллайдер - 📖
+                        <a href="https://docs.unity3d.com/ru/2019.4/ScriptReference/MonoBehaviour.OnTriggerEnter2D.html">OnTriggerEnter2D</a>
+                    </p>
+                    <p class="special-tip-for-task">🤐 <b>Подсказка 2:</b> Перемещение между сценами - 📖
+                        <a href="https://docs.unity3d.com/6000.1/Documentation/ScriptReference/SceneManagement.SceneManager.LoadScene.html">LoadScene</a>
+                    </p>
+                    <p class="special-tip-for-task">🥴 <b>Подсказка 3:</b> Подбирание объектов - 📖
+                        <a href="https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.Destroy.html">Destroy</a>
+                    </p>
+                </div>
+                <div class="montserrat">
+                    <p>🥇 Все как на гифке снизу</p>
+                    <p>🥈 Нету скрипта на "поднятие" гемов</p>
+                    <p>🥉 Не переходит на сцену </p>
+                    <img src="/gifs/eighth/scene-result.gif" alt="scene-result">
+                    <a href="https://gifyu.com/image/bsv7U" target="_blank" class="gif-link">🔗 Альтернативная ссылка на GIF</a>            
+                </div>
+            </div>
         </div>
     </div>
 </template>
