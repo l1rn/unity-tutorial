@@ -5,13 +5,17 @@ import ReferencesView from "@/components/references/ReferencesView.vue";
 import AboutView from "@/components/about/AboutView.vue"
 
 const routes = [
-    { path: '/', redirect: '/home/lesson/1'},
+    { path: '/', redirect: '/about'},
     { path: '/references', component: ReferencesView},
     { path: '/about', component: AboutView },
     { 
         path: '/home/lesson/:page(\\d+)',
         component: HomeView,
         props: true
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/'
     }
 ]
 

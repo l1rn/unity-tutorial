@@ -19,9 +19,9 @@
           ссылки
         </button>
         <button
-        @click="$router.push('/about')">
-          <span class="emoji">ℹ️</span>
-          что такое
+        @click="$router.push('/home/lesson/1')">
+          <span class="emoji">🦣</span>
+          туториал
         </button>
       </div>
     </div>

@@ -1,24 +1,33 @@
-# main
+# 👩‍🏫 Unity tutorial
+Сайт представляет из гайд по Unity. Здесь можно ознакомиться с моей реализацией сайта на Vue.
 
-## Project setup
+## 🧵 Вам понадобится
+
+#### 1. [Node.js](https://nodejs.org/en)
+#### 2. [Vue-cli](https://cli.vuejs.org/#getting-started)
+
+## ⬇️ Установка
+
+### 🎻 Подготовка проекта
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 🔥 Компиляция и горячая перезагрузка для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 🏭 Компиляция и минификация для производства
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### 😶‍🌫️ Линтинг
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Результат
+Можно посмотреть мой деплой на Netlify — 🌍 [Unity tutorial](https://unity-tutorial.netlify.app/).
+> Если сайт не работает, хост упал (30 дней не заходили)
